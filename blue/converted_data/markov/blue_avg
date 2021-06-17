@@ -1,0 +1,203 @@
+digraph avg {
+	graph [rankdir=TB]
+	compound=true fixed_size=false fontname="fira-code" label="blue  avg >0.01\%" overlap=scale packMode=clust size=90
+	"Dig Substrate"
+	Foraging
+	Lead
+	Pot
+	"Pot Dig"
+	Quiver
+	Scrape
+	"Dig Pot"
+	subgraph cluster_Aggressive {
+		color=white label=Aggressive labelloc=b style=filled
+		"Border Fight" [color=red height="                                            Behavior  ...    stderr
+0  Border FightBorder FightBorder FightBorder Fig...  ...  0.077174
+
+[1 rows x 12 columns]" width="                                            Behavior  ...    stderr
+0  Border FightBorder FightBorder FightBorder Fig...  ...  0.077174
+
+[1 rows x 12 columns]"]
+		Chase [color=red height="                                            Behavior  ...    stderr
+1  ChaseChaseChaseChaseChaseChaseChaseChaseChaseC...  ...  0.699187
+
+[1 rows x 12 columns]" width="                                            Behavior  ...    stderr
+1  ChaseChaseChaseChaseChaseChaseChaseChaseChaseC...  ...  0.699187
+
+[1 rows x 12 columns]"]
+		"Lateral Side Display" [color=red height="                                            Behavior  ...    stderr
+4  Lateral Side DisplayLateral Side DisplayLatera...  ...  0.014505
+
+[1 rows x 12 columns]" width="                                            Behavior  ...    stderr
+4  Lateral Side DisplayLateral Side DisplayLatera...  ...  0.014505
+
+[1 rows x 12 columns]"]
+		"Boarder Fight" [color=red height="                                             Behavior  ...    stderr
+10  Boarder FightBoarder FightBoarder FightBoarder...  ...  0.002204
+
+[1 rows x 12 columns]" width="                                             Behavior  ...    stderr
+10  Boarder FightBoarder FightBoarder FightBoarder...  ...  0.002204
+
+[1 rows x 12 columns]"]
+		Scraping [color=red height="                                             Behavior  ...   stderr
+12  ScrapingScrapingScrapingScrapingScrapingScrapi...  ...  0.01508
+
+[1 rows x 12 columns]" width="                                             Behavior  ...   stderr
+12  ScrapingScrapingScrapingScrapingScrapingScrapi...  ...  0.01508
+
+[1 rows x 12 columns]"]
+	}
+	subgraph cluster_Reproductive {
+		color=white label=Reproductive labelloc=b style=filled
+		"Dig Substrate" [color=forestgreen height="                                            Behavior  ...    stderr
+2  Dig SubstrateDig SubstrateDig SubstrateDig Sub...  ...  0.598044
+
+[1 rows x 12 columns]" width="                                            Behavior  ...    stderr
+2  Dig SubstrateDig SubstrateDig SubstrateDig Sub...  ...  0.598044
+
+[1 rows x 12 columns]"]
+		Foraging [color=forestgreen height="                                            Behavior  ...    stderr
+3  ForagingForagingForagingForagingForagingForagi...  ...  0.725922
+
+[1 rows x 12 columns]" width="                                            Behavior  ...    stderr
+3  ForagingForagingForagingForagingForagingForagi...  ...  0.725922
+
+[1 rows x 12 columns]"]
+		Lead [color=forestgreen height="                                            Behavior  ...    stderr
+5  LeadLeadLeadLeadLeadLeadLeadLeadLeadLeadLeadLe...  ...  0.664362
+
+[1 rows x 12 columns]" width="                                            Behavior  ...    stderr
+5  LeadLeadLeadLeadLeadLeadLeadLeadLeadLeadLeadLe...  ...  0.664362
+
+[1 rows x 12 columns]"]
+		Pot [color=forestgreen height="                                            Behavior  ...    stderr
+6  PotPotPotPotPotPotPotPotPotPotPotPotPotPotPotP...  ...  0.096575
+
+[1 rows x 12 columns]" width="                                            Behavior  ...    stderr
+6  PotPotPotPotPotPotPotPotPotPotPotPotPotPotPotP...  ...  0.096575
+
+[1 rows x 12 columns]"]
+		"Pot Dig" [color=forestgreen height="                                            Behavior  ...    stderr
+7  Pot DigPot DigPot DigPot DigPot DigPot DigPot ...  ...  0.268544
+
+[1 rows x 12 columns]" width="                                            Behavior  ...    stderr
+7  Pot DigPot DigPot DigPot DigPot DigPot DigPot ...  ...  0.268544
+
+[1 rows x 12 columns]"]
+		Quiver [color=forestgreen height="                                            Behavior  ...    stderr
+8  QuiverQuiverQuiverQuiverQuiverQuiverQuiverQuiv...  ...  0.183288
+
+[1 rows x 12 columns]" width="                                            Behavior  ...    stderr
+8  QuiverQuiverQuiverQuiverQuiverQuiverQuiverQuiv...  ...  0.183288
+
+[1 rows x 12 columns]"]
+		Scrape [color=forestgreen height="                                            Behavior  ...    stderr
+9  ScrapeScrapeScrapeScrapeScrapeScrapeScrapeScra...  ...  0.322029
+
+[1 rows x 12 columns]" width="                                            Behavior  ...    stderr
+9  ScrapeScrapeScrapeScrapeScrapeScrapeScrapeScra...  ...  0.322029
+
+[1 rows x 12 columns]"]
+		"Dig Pot" [color=forestgreen height="                                             Behavior  ...    stderr
+11  Dig PotDig PotDig PotDig PotDig PotDig PotDig ...  ...  0.262118
+
+[1 rows x 12 columns]" width="                                             Behavior  ...    stderr
+11  Dig PotDig PotDig PotDig PotDig PotDig PotDig ...  ...  0.262118
+
+[1 rows x 12 columns]"]
+	}
+	"Border Fight" -> Chase [color=red fontcolor="#913838" fontsize=15 headxlabel=36.65 labelloc=c penwidth=3.665]
+	"Border Fight" -> "Dig Substrate" [color=slategray fontcolor=black fontsize=15 headxlabel=21.31 labelloc=c penwidth=2.131]
+	Chase -> "Border Fight" [color=red fontcolor="#913838" fontsize=15 headxlabel=2.31 labelloc=c penwidth=0.231]
+	Chase -> Chase [color=red fontcolor="#913838" fontsize=15 headxlabel=48.9 labelloc=c penwidth=4.890000000000001]
+	Chase -> "Dig Substrate" [color=slategray fontcolor=black fontsize=15 headxlabel=8.45 labelloc=c penwidth=0.845]
+	Chase -> Foraging [color=slategray fontcolor=black fontsize=15 headxlabel=12.95 labelloc=c penwidth=1.295]
+	Chase -> Lead [color=slategray fontcolor=black fontsize=15 headxlabel=15.57 labelloc=c penwidth=1.5570000000000002]
+	Chase -> Pot [color=slategray fontcolor=black fontsize=15 headxlabel=3.34 labelloc=c penwidth=0.334]
+	Chase -> Quiver [color=slategray fontcolor=black fontsize=15 headxlabel=0.85 labelloc=c penwidth=0.085]
+	"Dig Substrate" -> "Border Fight" [color=slategray fontcolor=black fontsize=15 headxlabel=0.25 labelloc=c penwidth=0.025]
+	"Dig Substrate" -> Chase [color=slategray fontcolor=black fontsize=15 headxlabel=12.5 labelloc=c penwidth=1.25]
+	"Dig Substrate" -> "Dig Substrate" [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=67.77 labelloc=c penwidth=6.777]
+	"Dig Substrate" -> Foraging [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=8.75 labelloc=c penwidth=0.875]
+	"Dig Substrate" -> "Lateral Side Display" [color=slategray fontcolor=black fontsize=15 headxlabel=0.13 labelloc=c penwidth=0.013000000000000001]
+	"Dig Substrate" -> Lead [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=6.8 labelloc=c penwidth=0.68]
+	Foraging -> Chase [color=slategray fontcolor=black fontsize=15 headxlabel=14.11 labelloc=c penwidth=1.411]
+	Foraging -> "Dig Substrate" [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=10.07 labelloc=c penwidth=1.0070000000000001]
+	Foraging -> Foraging [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=63.11 labelloc=c penwidth=6.311]
+	Foraging -> Lead [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=7.63 labelloc=c penwidth=0.763]
+	Foraging -> Pot [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=1.79 labelloc=c penwidth=0.17900000000000002]
+	Foraging -> Scrape [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=0.78 labelloc=c penwidth=0.07800000000000001]
+	"Lateral Side Display" -> Chase [color=red fontcolor="#913838" fontsize=15 headxlabel=53.63 labelloc=c penwidth=5.363]
+	Lead -> Chase [color=slategray fontcolor=black fontsize=15 headxlabel=25.62 labelloc=c penwidth=2.5620000000000003]
+	Lead -> "Dig Substrate" [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=10.32 labelloc=c penwidth=1.032]
+	Lead -> Foraging [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=14.19 labelloc=c penwidth=1.419]
+	Lead -> Lead [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=37.33 labelloc=c penwidth=3.733]
+	Lead -> Pot [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=4.27 labelloc=c penwidth=0.427]
+	Lead -> Quiver [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=5.67 labelloc=c penwidth=0.5670000000000001]
+	Pot -> Chase [color=slategray fontcolor=black fontsize=15 headxlabel=26.35 labelloc=c penwidth=2.6350000000000002]
+	Pot -> Foraging [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=2.96 labelloc=c penwidth=0.296]
+	Pot -> Pot [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=9.34 labelloc=c penwidth=0.934]
+	Pot -> "Pot Dig" [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=30.54 labelloc=c penwidth=3.0540000000000003]
+	"Pot Dig" -> Pot [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=46.79 labelloc=c penwidth=4.679]
+	"Pot Dig" -> "Pot Dig" [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=49.64 labelloc=c penwidth=4.964]
+	Quiver -> Chase [color=slategray fontcolor=black fontsize=15 headxlabel=19.72 labelloc=c penwidth=1.972]
+	Quiver -> Lead [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=39.25 labelloc=c penwidth=3.9250000000000003]
+	Scrape -> Chase [color=slategray fontcolor=black fontsize=15 headxlabel=35.46 labelloc=c penwidth=3.5460000000000003]
+	"Border Fight" -> Foraging [color=slategray fontcolor=black fontsize=15 headxlabel=4.94 labelloc=c penwidth=0.49400000000000005]
+	"Border Fight" -> "Lateral Side Display" [color=red fontcolor="#913838" fontsize=15 headxlabel=2.47 labelloc=c penwidth=0.24700000000000003]
+	"Border Fight" -> Lead [color=slategray fontcolor=black fontsize=15 headxlabel=15.42 labelloc=c penwidth=1.542]
+	"Border Fight" -> Scrape [color=slategray fontcolor=black fontsize=15 headxlabel=14.84 labelloc=c penwidth=1.484]
+	Chase -> "Lateral Side Display" [color=red fontcolor="#913838" fontsize=15 headxlabel=0.46 labelloc=c penwidth=0.046000000000000006]
+	Chase -> Scrape [color=slategray fontcolor=black fontsize=15 headxlabel=5.75 labelloc=c penwidth=0.5750000000000001]
+	"Dig Substrate" -> Pot [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=2.5 labelloc=c penwidth=0.25]
+	"Dig Substrate" -> Quiver [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=1.05 labelloc=c penwidth=0.10500000000000001]
+	"Dig Substrate" -> Scrape [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=0.13 labelloc=c penwidth=0.013000000000000001]
+	Foraging -> "Border Fight" [color=slategray fontcolor=black fontsize=15 headxlabel=0.12 labelloc=c penwidth=0.012]
+	Foraging -> "Pot Dig" [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=0.12 labelloc=c penwidth=0.012]
+	Foraging -> Quiver [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=0.29 labelloc=c penwidth=0.028999999999999998]
+	"Lateral Side Display" -> Pot [color=slategray fontcolor=black fontsize=15 headxlabel=10.92 labelloc=c penwidth=1.092]
+	"Lateral Side Display" -> Scrape [color=slategray fontcolor=black fontsize=15 headxlabel=20.59 labelloc=c penwidth=2.059]
+	Lead -> "Border Fight" [color=slategray fontcolor=black fontsize=15 headxlabel=1.08 labelloc=c penwidth=0.10800000000000001]
+	Lead -> Scrape [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=1.11 labelloc=c penwidth=0.11100000000000002]
+	Pot -> "Dig Substrate" [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=3.0 labelloc=c penwidth=0.30000000000000004]
+	Pot -> "Lateral Side Display" [color=slategray fontcolor=black fontsize=15 headxlabel=0.51 labelloc=c penwidth=0.051000000000000004]
+	Pot -> Lead [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=13.0 labelloc=c penwidth=1.3]
+	Pot -> Quiver [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=1.85 labelloc=c penwidth=0.18500000000000003]
+	"Pot Dig" -> Lead [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=1.48 labelloc=c penwidth=0.148]
+	Quiver -> "Dig Substrate" [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=19.19 labelloc=c penwidth=1.9190000000000003]
+	Quiver -> Pot [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=5.88 labelloc=c penwidth=0.588]
+	Quiver -> "Pot Dig" [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=1.51 labelloc=c penwidth=0.15100000000000002]
+	Quiver -> Quiver [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=13.12 labelloc=c penwidth=1.312]
+	Scrape -> "Border Fight" [color=slategray fontcolor=black fontsize=15 headxlabel=6.73 labelloc=c penwidth=0.673]
+	Scrape -> "Dig Substrate" [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=8.92 labelloc=c penwidth=0.892]
+	Scrape -> Foraging [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=6.22 labelloc=c penwidth=0.622]
+	Scrape -> Lead [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=11.24 labelloc=c penwidth=1.124]
+	Scrape -> Quiver [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=3.69 labelloc=c penwidth=0.369]
+	Scrape -> Scrape [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=25.77 labelloc=c penwidth=2.577]
+	Scrape -> Pot [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=1.1 labelloc=c penwidth=0.11000000000000001]
+	"Boarder Fight" -> Chase [color=red fontcolor="#913838" fontsize=15 headxlabel=100.0 labelloc=c penwidth=10.0]
+	Chase -> "Boarder Fight" [color=red fontcolor="#913838" fontsize=15 headxlabel=0.14 labelloc=c penwidth=0.014000000000000002]
+	Chase -> "Dig Pot" [color=slategray fontcolor=black fontsize=15 headxlabel=1.0 labelloc=c penwidth=0.1]
+	Chase -> Scraping [color=red fontcolor="#913838" fontsize=15 headxlabel=0.29 labelloc=c penwidth=0.028999999999999998]
+	"Dig Pot" -> Chase [color=slategray fontcolor=black fontsize=15 headxlabel=7.97 labelloc=c penwidth=0.797]
+	"Dig Pot" -> "Dig Pot" [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=43.03 labelloc=c penwidth=4.303]
+	"Dig Pot" -> "Dig Substrate" [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=1.59 labelloc=c penwidth=0.15900000000000003]
+	"Dig Pot" -> Foraging [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=14.34 labelloc=c penwidth=1.4340000000000002]
+	"Dig Pot" -> Lead [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=6.34 labelloc=c penwidth=0.634]
+	"Dig Pot" -> Pot [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=26.71 labelloc=c penwidth=2.6710000000000003]
+	Foraging -> "Dig Pot" [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=1.7 labelloc=c penwidth=0.17]
+	Foraging -> Scraping [color=slategray fontcolor=black fontsize=15 headxlabel=0.17 labelloc=c penwidth=0.017]
+	"Lateral Side Display" -> "Dig Pot" [color=slategray fontcolor=black fontsize=15 headxlabel=14.87 labelloc=c penwidth=1.487]
+	Lead -> "Dig Pot" [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=0.25 labelloc=c penwidth=0.025]
+	Pot -> "Dig Pot" [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=11.55 labelloc=c penwidth=1.155]
+	Scraping -> Chase [color=red fontcolor="#913838" fontsize=15 headxlabel=100.0 labelloc=c penwidth=10.0]
+	"Border Fight" -> "Border Fight" [color=red fontcolor="#913838" fontsize=15 headxlabel=2.19 labelloc=c penwidth=0.219]
+	"Border Fight" -> Pot [color=slategray fontcolor=black fontsize=15 headxlabel=2.19 labelloc=c penwidth=0.219]
+	"Dig Substrate" -> "Pot Dig" [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=0.11 labelloc=c penwidth=0.011000000000000001]
+	Foraging -> "Lateral Side Display" [color=slategray fontcolor=black fontsize=15 headxlabel=0.11 labelloc=c penwidth=0.011000000000000001]
+	Lead -> "Pot Dig" [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=0.16 labelloc=c penwidth=0.016]
+	Pot -> "Border Fight" [color=slategray fontcolor=black fontsize=15 headxlabel=0.9 labelloc=c penwidth=0.09000000000000001]
+	"Pot Dig" -> Chase [color=slategray fontcolor=black fontsize=15 headxlabel=2.09 labelloc=c penwidth=0.209]
+	Quiver -> Foraging [color=forestgreen fontcolor="#1e34c1b" fontsize=15 headxlabel=1.34 labelloc=c penwidth=0.134]
+	Scrape -> "Lateral Side Display" [color=slategray fontcolor=black fontsize=15 headxlabel=0.87 labelloc=c penwidth=0.08700000000000001]
+}
