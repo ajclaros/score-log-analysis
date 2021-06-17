@@ -5,8 +5,8 @@
 - within the command line type "conda create -n analysis python=3.8 numpy matplotlib pandas graphviz graphviz-python spyder
 
 * Running and editing scripts
-- Download this repository and unzip
-- Refer to the folder structure of the repository for your project, replace the folders named "blue" and "yellow" with your group names, place score logs in their respective groups
+- Download this repository and unzip the folder
+- Refer to the folder structure of this repository for your project, replace the folders named "blue" and "yellow" with your group names, place score logs in their respective groups
 - After opening the anaconda prompt type "conda activate analysis", a new prompt with (analysis) should appear, then type "spyder" which opens the spyder IDE
 - optional: test run the installation by running the scripts on the files in this folder
 ** create_dfs.py
