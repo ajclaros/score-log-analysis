@@ -1,3 +1,4 @@
+
 * Installing, setting up python
 - [[https://www.anaconda.com/products/individual][Install anaconda]]
 - Open anaconda prompt (search for the installed program)
@@ -7,6 +8,7 @@
 - Download this repository and unzip
 - Refer to the folder structure of the repository for your project, replace the folders named "blue" and "yellow" with your group names, place score logs in their respective groups
 - After opening the anaconda prompt type "conda activate analysis", a new prompt with (analysis) should appear, then type "spyder" which opens the spyder IDE
+- optional: test run the installation by running the scripts on the files in this folder
 ** create_dfs.py
 - Within Spyder, open "create_dfs.py"
 *** Editing file:
