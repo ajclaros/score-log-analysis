@@ -12,7 +12,21 @@
 *** Editing file:
 - Line 20: Replace "blue" with your group name
 - Line 21: Replace "dyad" with your folder name
-**** Editing for
+**** Editing duplicated behaviors:
+- If you don't have duplicate behaviors, you can skip this
+- Sometimes behaviors that are meant to be the same have slightly different names- different capitalizing or spacing, and you'd like to combine them
+- Modify line 44: 
+#+BEGIN_SRC python
+df[i]['Behavior'] = np.where(df[i]['Behavior'].isin(['Entry/Exit Pot', 'Entry /Exit Pot']), 'Pot', df[i]['Behavior'])
+#+END_SRC
+
+- Change ['Entry/Exit Pot', 'Entry /Exit Pot'] in a form similar to ['behavior_1', 'Behavior 1', 'behavior1'] as behaviors you'd like to combine
+- repeat for other behvaiors you'd like to combine
+**** Editing for behavior classes:
+- edit lines 49, 50, 51, or adding/removing lines according to how many behavior classes there are
+- Using 
+
+
 - Run program by pressing green arrow at top of screen or pressing F5
 - Line 20: replace with the second group name
 - A new folder should appear within each of your group folders titled "converted_data" with four .csv files titled "behavior_time", "behavior_time_probabilities", "transition_df" and "transition_probabilities"
