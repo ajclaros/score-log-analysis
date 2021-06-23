@@ -1,5 +1,5 @@
 * Setting up .tsv files
-- Open up each tsv file and delete the header
+- Open up each tsv file and delete the header lines
 [[./images/tsv_uncut.png]]
 - so that it looks like this
 [[./images/tsv_cut.png]]
