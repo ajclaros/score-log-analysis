@@ -1,4 +1,8 @@
-
+* Setting up .tsv files
+- Open up each tsv file and delete the header
+[[./images/tsv_uncut.png]]
+- so that it looks like this
+[[./images/tsv_cut.png]]
 * Installing, setting up python
 - [[https://www.anaconda.com/products/individual][Install anaconda]]
 - Open anaconda prompt (search for the installed program)
