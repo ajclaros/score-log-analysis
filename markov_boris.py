@@ -11,12 +11,15 @@ def GetKey(val, dictionary):
 color ='yellow'
 folder_name = "dyad"
 data = {}
-for csv in os.listdir('{}/{}/converted_data/'.format(folder_name, color)):
+for csv in os.listdir('data/{}/converted_data/'.format(folder_name, color)):
     if '.csv' not in csv:
         continue
-    data[csv[:-4]] = pd.read_csv('{}/{}/converted_data/{}'.format(folder_name, color,csv),index_col=0)
+    data[csv[:-4]] = pd.read_csv('data/{}/converted_data/{}'.format(folder_name, color,csv),index_col=0)
+
+
 colors = {'Aggressive':'red', 'Reproductive':'forestgreen','Aversive':'blue'}
 text_color ={'Aggressive':'#913838', 'Aversive':'#1e1e60', 'Reproductive':'#1e34c1b'}
+
 subgraph = {}
 filenames = list(data.keys())
 categories = data[filenames[0]]['Behavioral category'].unique()

@@ -1,9 +1,3 @@
-* Setting up .tsv files
-- Open up each tsv file and delete the header lines
-
-[[./images/tsv_uncut.png]]
-- so that it looks like this
-[[./images/tsv_cut.png]]
 * Installing, setting up python
 - [[https://www.anaconda.com/products/individual][Install anaconda]]
 - Open anaconda prompt (search for the installed program)
@@ -11,47 +5,21 @@
 
 * Running and editing scripts
 - Download this repository and unzip the folder
-- Refer to the folder structure of this repository for your project, replace the folders named "blue" and "yellow" with your group names, place score logs in their respective groups
+- put all score logs into the 'data' folder
+
 - After opening the anaconda prompt type "conda activate analysis", a new prompt with (analysis) should appear, then type "spyder" which opens the spyder IDE
 - optional: test run the installation by running the scripts on the files in this folder
 ** create_dfs.py
 - Within Spyder, open "create_dfs.py"
 *** Editing file:
-- Line 20: Replace "blue" with your group name
-- Line 21: Replace "dyad" with your folder name
+- lines 20 through 24: Replace behavior classes with your own behavior classes (if different from file), and their colors when representing in graphs
+- replace line 7 with the colors for each bar graph
 **** Editing duplicated behaviors:
 - If you don't have duplicate behaviors, you can skip this
-- Sometimes behaviors that are meant to be the same have slightly different names- different capitalizing or spacing, and you'd like to combine them
-- Modify line 44: 
-#+BEGIN_SRC python
-df[i]['Behavior'] = np.where(df[i]['Behavior'].isin(['Entry/Exit Pot', 'Entry /Exit Pot']), 'Pot', df[i]['Behavior'])
-#+END_SRC
-- Change ['Entry/Exit Pot', 'Entry /Exit Pot'] in a form similar to ['behavior_1', 'Behavior 1', 'behavior1'] as behaviors you'd like to combine
-- replace 'Pot' with the behavior with the name you'd like to replace with
-- It should look similar to the form:
-#+BEGIN_SRC python
-df[i]['Behavior'] = np.where(df[i]['Behavior'].isin(['behavior_1', 'Behavior 1', 'behavior1']), 'Behavior_1', df[i]['Behavior'])
-#+END_SRC 
-- add more simliar lines for other behvaiors you'd like to combine
+- use line 28 as a template to combine differently spelled behaviors
 
 **** Editing for behavior classes:
-- edit lines 49, 50, 51, or adding/removing lines according to how many behavior classes there are
-- Using line 59 as a template:
-#+BEGIN_SRC python
-df[i]['Behavioral category'] = np.where(df[i]['Behavior'].isin(['flee']), 'Aversive', df[i]['Behavioral category'])
-#+END_SRC
-- Replace ['flee'] with a list of behaviors for a given class, replace "Aversive" with the behvaior class
+- modify lines 26 to 28 for behavior classes and their associated behaviors
+- add more behavior classes in a similar format
 **** Running file
 - Run program by pressing green arrow at top of screen or pressing F5
-- Line 20: replace with the second group name
-- A new folder should appear within each of your group folders titled "converted_data" with four .csv files titled "behavior_time", "behavior_time_probabilities", "transition_df" and "transition_probabilities"
-** markov_boris.py
-- open markov_boris.py within spyder
-- Line 11: replace with your group name
-- Line 12: replace with folder name
-- Run file
-
-** barplots.py
-- lines 10, 11: replace "blue" and "yellow" with the respective group names
-- Line 40: replace "blue", "gold" with your choice of color for bar plots
-- run file

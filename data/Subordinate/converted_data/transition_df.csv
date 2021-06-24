@@ -1,0 +1,20 @@
+,Behavior,Behavior next,Behavioral category,Counts_0,Counts_1,Counts_2,avg,stderr
+0,Dig Substrate,Dig Substrate,Reproductive,50.0,0.0,0.0,16.666666666666668,16.666666666666668
+1,Dig Substrate,Entry/Exit Pot,Reproductive,2.0,0.0,0.0,0.6666666666666666,0.6666666666666667
+2,Dig Substrate,Fleeing Male,Reproductive,13.0,0.0,0.0,4.333333333333333,4.333333333333334
+3,Dig Substrate,Foraging,Reproductive,2.0,0.0,0.0,0.6666666666666666,0.6666666666666667
+4,Entry/Exit Pot,Dig Substrate,Reproductive,1.0,0.0,0.0,0.3333333333333333,0.33333333333333337
+5,Entry/Exit Pot,Entry/Exit Pot,Reproductive,2.0,0.0,0.0,0.6666666666666666,0.6666666666666667
+6,Entry/Exit Pot,Fleeing Male,Reproductive,2.0,0.0,0.0,0.6666666666666666,0.6666666666666667
+7,Fleeing Male,Dig Substrate,Subordinate,11.0,0.0,0.0,3.6666666666666665,3.666666666666667
+8,Fleeing Male,Entry/Exit Pot,Subordinate,1.0,0.0,0.0,0.3333333333333333,0.33333333333333337
+9,Fleeing Male,Fleeing Male,Subordinate,51.0,117.0,0.0,56.0,33.8673884437522
+10,Fleeing Male,Foraging,Subordinate,13.0,0.0,0.0,4.333333333333333,4.333333333333334
+11,Foraging,Dig Substrate,Reproductive,5.0,0.0,0.0,1.6666666666666667,1.6666666666666667
+12,Foraging,Fleeing Male,Reproductive,8.0,0.0,0.0,2.6666666666666665,2.666666666666667
+13,Foraging,Foraging,Reproductive,53.0,0.0,0.0,17.666666666666668,17.666666666666664
+14,Foraging,Quiver,Reproductive,1.0,0.0,0.0,0.3333333333333333,0.33333333333333337
+15,Pot Dig,Fleeing Male,Reproductive,1.0,0.0,0.0,0.3333333333333333,0.33333333333333337
+16,Quiver,Fleeing Male,Reproductive,1.0,0.0,0.0,0.3333333333333333,0.33333333333333337
+17,Fleeing Female,Fleeing Male,Subordinate,0.0,2.0,0.0,0.6666666666666666,0.6666666666666667
+18,Fleeing Male,Fleeing Female,Subordinate,0.0,2.0,0.0,0.6666666666666666,0.6666666666666667
