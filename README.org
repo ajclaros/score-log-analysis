@@ -1,3 +1,8 @@
+* Description
+- creates folders for each animal type
+- summarizes score logs for each animal type
+- creates markov chain graphs for each file in folder and thier average
+- creates single bar plot to of time spent in each behavior for all animal types
 * Installing, setting up python
 - [[https://www.anaconda.com/products/individual][Install anaconda]]
 - Open anaconda prompt (search for the installed program)
