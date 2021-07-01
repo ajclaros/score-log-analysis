@@ -15,7 +15,7 @@
 - After opening the anaconda prompt type "conda activate analysis", a new prompt with (analysis) should appear, then type "spyder" which opens the spyder IDE
 - optional: test run the installation by running the scripts on the files in this folder
 ** create_dfs.py
-- Within Spyder, open "create_dfs.py"
+- Within Spyder, open the file within the analysis folder: "create_dfs.py"
 *** Editing file:
 - lines 20 through 24: Replace behavior classes with your own behavior classes (if different from file), and their colors when representing in graphs
 - replace line 7 with the colors for each bar graph
