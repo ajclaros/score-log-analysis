@@ -24,7 +24,9 @@
 - use line 28 as a template to combine differently spelled behaviors
 
 **** Editing for behavior classes:
-- modify lines 26 to 28 for behavior classes and their associated behaviors
+- For each behavior classification in your dataset add a color associated with each behavior class such as "Aggressive":"red" to lines 20 through 22, add or remove line depending on your dataset
+- Modify Line 25 for bar colors. "Subordinate": "Blue" means that the animal type "Subordinate" will be displayed as a blue color in the bar charts. 
+- modify lines 30 through 32 for behavior classes and their associated behaviors
 - add more behavior classes in a similar format
 **** Running file
 - Run program by pressing green arrow at top of screen or pressing F5
