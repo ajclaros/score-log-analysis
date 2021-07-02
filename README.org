@@ -10,7 +10,7 @@
 
 * Running and editing scripts
 - Download this repository and unzip the folder
-- put all score logs into the 'data' folder
+- Place all score logs into the 'data' folder
 
 - After opening the anaconda prompt type "conda activate analysis", a new prompt with (analysis) should appear, then type "spyder" which opens the spyder IDE
 - optional: test run the installation by running the scripts on the files in this folder
