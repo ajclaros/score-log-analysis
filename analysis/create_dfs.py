@@ -62,9 +62,6 @@ def create_df(fish_type):
             df[i]['Behavioral category'] = np.where(df[i]['Behavior'].isin(behavior_classifications[key]), key, df[i]['Behavioral category'])
 
 
-
-
-
         df[i]['time2'] = df[i]['Time'].shift(-1)
         #create new column of transition behavior
         df[i]['Behavior next'] = df[i]['Behavior'].shift(-1)
@@ -82,6 +79,7 @@ def create_df(fish_type):
         behaviors.append(df[i]['Behavior'].unique())
         categories.append(df[i]['Behavioral category'].unique())
         associations =df[i].groupby('Behavioral category')['Behavior'].unique().apply(list)
+
     #merge all transition matrices into transition_df
     transition_df = transition_matrix.pop(0)
     transition_df.reset_index(level=[0,1,2], inplace=True)
@@ -163,7 +161,7 @@ def GetKey(val, dictionary):
     for key, value in dictionary.items():
         if val in value:
             return key
-    return "key doesn't exist"
+    return "key for {} doesn't exist".format(val)
 
 def flatten(_2d_list):
     flat_list = []
