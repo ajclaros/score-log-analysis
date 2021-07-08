@@ -37,6 +37,9 @@ behavior_classifications['Reproductive'] = ["Lead","Quiver","Pot Dig", "Dig Subs
 combined_behaviors = dict()
 combined_behaviors['Entry/Exit Pot'] = ['Entry/Exit Pot', 'Entry /Exit Pot', 'Pot Entry', 'Pot Exit']
 
+#Behavior names to create rastor plots
+behavior_raster = ['Chase', 'Quiver']
+
 def create_df(fish_type):
 
     files = os.listdir('data/{}'.format(fish_type))
@@ -152,9 +155,9 @@ def split_subject(df):
                     continue
                 idx = filename.index('.tsv')
                 new_filename = filename[:idx] + name + filename[idx:]
-                group.to_csv('data/{}/{}'.format(name, new_filename))
+                group.to_csv('data/{}/{}'.format(name, new_filename), index=False)
         else:
-            frame.to_csv('data/{}/{}'.format(frame['Subject'][0], filename))
+            frame.to_csv('data/{}/{}'.format(frame['Subject'][0], filename), index=False)
     return
 
 def GetKey(val, dictionary):
@@ -265,14 +268,26 @@ def create_barplots(folders):
     plt.gca().set_title("")
     plt.tight_layout()
 
-    plt.savefig('behavior_time_dyad_barplot.png', dpi=300)
+    plt.savefig('/images/behavior_time_dyad_barplot.png', dpi=300)
     print('====================')
     return
 
 
 
-def create_raster(file_name, animal_type, behavior):
-    pass
+def create_raster(filename, animal_type, behavior):
+    data = pd.read_csv('./data/{}/{}'.format(animal_type, filename), index_col=0)
+    beh_data = data[data['Behavior']==behavior]
+    fig, ax = plt.subplots(figsize=(10,2))
+    ax.eventplot(beh_data['Time'])
+    fig.suptitle('Filename: {}, Behavior: {}, Type: {}'.format(filename, behavior, animal_type))
+    plotname = filename.split('.')[0]
+    if not os.path.lexists('./images/{}/{}/'.format(animal_type, behavior)):
+        os.makedirs('./images/{}/{}'.format(animal_type, behavior))
+    plt.savefig('./images/{}/{}/{}_{}_{}.png'.format(animal_type,behavior,plotname,animal_type,behavior))
+
+
+
+
 
 
 
@@ -293,3 +308,12 @@ for fish_type in folders:
         data[csv[:-4]] = pd.read_csv('data/{}/converted_data/{}'.format(fish_type,csv),index_col=0)
     create_graph(data, fish_type)
 create_barplots(folders)
+
+
+animal_types = {dirname:os.listdir('./data/{}'.format(dirname)) for dirname in os.listdir('./data/') if os.path.isdir(os.path.join('./data', dirname))}
+for animal_type in animal_types.keys():
+    print(animal_type)
+    for filename in os.listdir('./data/{}'.format(animal_type)):
+        if not os.path.isdir('./data/{}/{}'.format(animal_type, filename)):
+            for behavior in behavior_raster:
+                create_raster(filename, animal_type, behavior)
