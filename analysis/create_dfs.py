@@ -28,14 +28,14 @@ bar_colors = {'Subordinate': 'blue', 'Dominant':'red'}
 #Replace 'Aggressive', 'Subordinate', 'Reproductive' with behavior classes
 #replace lists on left side with list of associated behaviors for each class
 behavior_classifications = dict()
-behavior_classifications['Aggressive'] = [ "Chase", "Border Fight", "Frontal Side Display", "Lateral Side Display", "Attack", "Biting", "Scrape"]
+behavior_classifications['Aggressive'] = [ "Chase", "Border Fight", "Frontal Side Display", "Lateral Side Display", "Attack", "Biting", "Scrape", 'Charge']
 behavior_classifications['Subordinate'] = ["Fleeing Male", "Fleeing Female"]
 behavior_classifications['Reproductive'] = ["Lead","Quiver","Pot Dig", "Dig Substrate", "Foraging", "Entry/Exit Pot"]
 
 # Replace duplicate or multiple behaviors to combine into a single term
 #
 combined_behaviors = dict()
-#combined_behaviors['Entry/Exit Pot'] = ['Entry/Exit Pot', 'Entry /Exit Pot']
+combined_behaviors['Entry/Exit Pot'] = ['Entry/Exit Pot', 'Entry /Exit Pot', 'Pot Entry', 'Pot Exit']
 
 def create_df(fish_type):
 
@@ -268,6 +268,16 @@ def create_barplots(folders):
     plt.savefig('behavior_time_dyad_barplot.png', dpi=300)
     print('====================')
     return
+
+
+
+def create_raster(file_name, animal_type, behavior):
+    pass
+
+
+
+
+
 
 df = import_dataframes()
 split_subject(df)

@@ -1,0 +1,242 @@
+digraph prob_9 {
+	graph [rankdir=TB]
+	compound=true fixed_size=false fontname="fira-code" label="Dominant  prob_9 >0.01\%" overlap=scale packMode=clust size=90
+	"Entry/Exit Pot"
+	Foraging
+	Lead
+	"Pot Dig"
+	Quiver
+	"Dig Substrate"
+	subgraph cluster_Aggressive {
+		color=white label=Aggressive labelloc=b style=filled
+		Biting [color=red height="                                            Behavior                                Behavioral category    prob_0    prob_1    prob_2    prob_3  prob_4    prob_5  ...    prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg    stderr
+0  BitingBitingBitingBitingBitingBitingBitingBiti...  AggressiveAggressiveAggressiveAggressiveAggres...  2.594805  0.573925  2.012683  2.030504     0.0  0.837096  ...  1.770948  3.655003  1.407837   1.26732  2.752246  1.173412  1.740872  0.198599
+
+[1 rows x 18 columns]" width="                                            Behavior                                Behavioral category    prob_0    prob_1    prob_2    prob_3  prob_4    prob_5  ...    prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg    stderr
+0  BitingBitingBitingBitingBitingBitingBitingBiti...  AggressiveAggressiveAggressiveAggressiveAggres...  2.594805  0.573925  2.012683  2.030504     0.0  0.837096  ...  1.770948  3.655003  1.407837   1.26732  2.752246  1.173412  1.740872  0.198599
+
+[1 rows x 18 columns]"]
+		Charge [color=red height="                                            Behavior                                Behavioral category  prob_0    prob_1    prob_2    prob_3    prob_4    prob_5  ...    prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1      avg    stderr
+1  ChargeChargeChargeChargeChargeChargeChargeChar...  AggressiveAggressiveAggressiveAggressiveAggres...  0.1149  0.018954  2.586479  1.073102  1.648879  4.875738  ...  0.017797  0.827892  0.928088  1.653393  1.328236  2.837672  1.34954  0.259188
+
+[1 rows x 18 columns]" width="                                            Behavior                                Behavioral category  prob_0    prob_1    prob_2    prob_3    prob_4    prob_5  ...    prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1      avg    stderr
+1  ChargeChargeChargeChargeChargeChargeChargeChar...  AggressiveAggressiveAggressiveAggressiveAggres...  0.1149  0.018954  2.586479  1.073102  1.648879  4.875738  ...  0.017797  0.827892  0.928088  1.653393  1.328236  2.837672  1.34954  0.259188
+
+[1 rows x 18 columns]"]
+		Chase [color=red height="                                            Behavior                                Behavioral category    prob_0    prob_1    prob_2    prob_3    prob_4    prob_5  ...    prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg    stderr
+2  ChaseChaseChaseChaseChaseChaseChaseChaseChaseC...  AggressiveAggressiveAggressiveAggressiveAggres...  0.377728  5.704574  4.947571  0.849036  4.316969  3.826157  ...  1.347869  2.389022  1.584604  3.818913  3.713754  0.219501  2.647538  0.411211
+
+[1 rows x 18 columns]" width="                                            Behavior                                Behavioral category    prob_0    prob_1    prob_2    prob_3    prob_4    prob_5  ...    prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg    stderr
+2  ChaseChaseChaseChaseChaseChaseChaseChaseChaseC...  AggressiveAggressiveAggressiveAggressiveAggres...  0.377728  5.704574  4.947571  0.849036  4.316969  3.826157  ...  1.347869  2.389022  1.584604  3.818913  3.713754  0.219501  2.647538  0.411211
+
+[1 rows x 18 columns]"]
+		Scrape [color=red height="                                            Behavior                                Behavioral category    prob_0    prob_1    prob_2    prob_3    prob_4    prob_5  ...    prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg    stderr
+8  ScrapeScrapeScrapeScrapeScrapeScrapeScrapeScra...  AggressiveAggressiveAggressiveAggressiveAggres...  2.467774  2.049514  1.157137  0.756599  2.502625  0.322887  ...  1.055253  1.929663  0.824671  2.260263  0.831716  1.035906  1.433868  0.148241
+
+[1 rows x 18 columns]" width="                                            Behavior                                Behavioral category    prob_0    prob_1    prob_2    prob_3    prob_4    prob_5  ...    prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg    stderr
+8  ScrapeScrapeScrapeScrapeScrapeScrapeScrapeScra...  AggressiveAggressiveAggressiveAggressiveAggres...  2.467774  2.049514  1.157137  0.756599  2.502625  0.322887  ...  1.055253  1.929663  0.824671  2.260263  0.831716  1.035906  1.433868  0.148241
+
+[1 rows x 18 columns]"]
+		"Frontal Side Display" [color=red height="                                             Behavior                                Behavioral category  prob_0    prob_1    prob_2    prob_3  prob_4   prob_5  ...  prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg    stderr
+10  Frontal Side DisplayFrontal Side DisplayFronta...  AggressiveAggressiveAggressiveAggressiveAggres...     0.0  0.099853  0.073449  0.027851     0.0  0.02277  ...     0.0  0.119218       0.0  0.188621  0.406255       0.0  0.079074  0.025934
+
+[1 rows x 18 columns]" width="                                             Behavior                                Behavioral category  prob_0    prob_1    prob_2    prob_3  prob_4   prob_5  ...  prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg    stderr
+10  Frontal Side DisplayFrontal Side DisplayFronta...  AggressiveAggressiveAggressiveAggressiveAggres...     0.0  0.099853  0.073449  0.027851     0.0  0.02277  ...     0.0  0.119218       0.0  0.188621  0.406255       0.0  0.079074  0.025934
+
+[1 rows x 18 columns]"]
+		"Lateral Side Display" [color=red height="                                             Behavior                                Behavioral category  prob_0    prob_1    prob_2    prob_3    prob_4   prob_5  ...    prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg    stderr
+11  Lateral Side DisplayLateral Side DisplayLatera...  AggressiveAggressiveAggressiveAggressiveAggres...     0.0  0.042745  0.273185  0.011098  0.431121  0.50061  ...  0.024878  0.633207  0.062068  0.599978  0.248427  0.016228  0.195436  0.047446
+
+[1 rows x 18 columns]" width="                                             Behavior                                Behavioral category  prob_0    prob_1    prob_2    prob_3    prob_4   prob_5  ...    prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg    stderr
+11  Lateral Side DisplayLateral Side DisplayLatera...  AggressiveAggressiveAggressiveAggressiveAggres...     0.0  0.042745  0.273185  0.011098  0.431121  0.50061  ...  0.024878  0.633207  0.062068  0.599978  0.248427  0.016228  0.195436  0.047446
+
+[1 rows x 18 columns]"]
+		"Border Fight" [color=red height="                                             Behavior                                Behavioral category  prob_0  prob_1    prob_2    prob_3    prob_4    prob_5  ...  prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg    stderr
+12  Border FightBorder FightBorder FightBorder Fig...  AggressiveAggressiveAggressiveAggressiveAggres...     0.0     0.0  0.001905  0.013358  0.578442  0.097499  ...     0.0  0.053221       0.0  0.039898       0.0       0.0  0.039824  0.026192
+
+[1 rows x 18 columns]" width="                                             Behavior                                Behavioral category  prob_0  prob_1    prob_2    prob_3    prob_4    prob_5  ...  prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg    stderr
+12  Border FightBorder FightBorder FightBorder Fig...  AggressiveAggressiveAggressiveAggressiveAggres...     0.0     0.0  0.001905  0.013358  0.578442  0.097499  ...     0.0  0.053221       0.0  0.039898       0.0       0.0  0.039824  0.026192
+
+[1 rows x 18 columns]"]
+	}
+	subgraph cluster_Reproductive {
+		color=white label=Reproductive labelloc=b style=filled
+		"Entry/Exit Pot" [color=forestgreen height="                                            Behavior                                Behavioral category    prob_0    prob_1    prob_2    prob_3   prob_4    prob_5  ...    prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg   stderr
+3  Entry/Exit PotEntry/Exit PotEntry/Exit PotEntr...  ReproductiveReproductiveReproductiveReproducti...  3.451695  0.346229  0.702488  0.137018  0.73746  0.512613  ...  0.086812  1.518489   0.29644  1.067874  0.876877  1.112758  1.019737  0.19898
+
+[1 rows x 18 columns]" width="                                            Behavior                                Behavioral category    prob_0    prob_1    prob_2    prob_3   prob_4    prob_5  ...    prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg   stderr
+3  Entry/Exit PotEntry/Exit PotEntry/Exit PotEntr...  ReproductiveReproductiveReproductiveReproducti...  3.451695  0.346229  0.702488  0.137018  0.73746  0.512613  ...  0.086812  1.518489   0.29644  1.067874  0.876877  1.112758  1.019737  0.19898
+
+[1 rows x 18 columns]"]
+		Foraging [color=forestgreen height="                                            Behavior                                Behavioral category    prob_0    prob_1    prob_2    prob_3    prob_4    prob_5  ...    prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg    stderr
+4  ForagingForagingForagingForagingForagingForagi...  ReproductiveReproductiveReproductiveReproducti...  0.267274  3.933248  3.744519  6.752168  6.168751  2.980878  ...  6.972134  1.601132  2.761241  3.255476  2.411025  0.104962  3.070443  0.453528
+
+[1 rows x 18 columns]" width="                                            Behavior                                Behavioral category    prob_0    prob_1    prob_2    prob_3    prob_4    prob_5  ...    prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg    stderr
+4  ForagingForagingForagingForagingForagingForagi...  ReproductiveReproductiveReproductiveReproducti...  0.267274  3.933248  3.744519  6.752168  6.168751  2.980878  ...  6.972134  1.601132  2.761241  3.255476  2.411025  0.104962  3.070443  0.453528
+
+[1 rows x 18 columns]"]
+		Lead [color=forestgreen height="                                            Behavior                                Behavioral category    prob_0    prob_1    prob_2    prob_3   prob_4    prob_5  ...    prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg    stderr
+5  LeadLeadLeadLeadLeadLeadLeadLeadLeadLeadLeadLe...  ReproductiveReproductiveReproductiveReproducti...  8.642766  3.511883  2.169496  3.704898  1.51334  1.426393  ...  3.928494  2.138998  2.356165  2.609639  2.402422  9.249762  3.864351  0.551345
+
+[1 rows x 18 columns]" width="                                            Behavior                                Behavioral category    prob_0    prob_1    prob_2    prob_3   prob_4    prob_5  ...    prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg    stderr
+5  LeadLeadLeadLeadLeadLeadLeadLeadLeadLeadLeadLe...  ReproductiveReproductiveReproductiveReproducti...  8.642766  3.511883  2.169496  3.704898  1.51334  1.426393  ...  3.928494  2.138998  2.356165  2.609639  2.402422  9.249762  3.864351  0.551345
+
+[1 rows x 18 columns]"]
+		"Pot Dig" [color=forestgreen height="                                            Behavior                                Behavioral category    prob_0    prob_1    prob_2    prob_3    prob_4    prob_5  ...    prob_8   prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg    stderr
+6  Pot DigPot DigPot DigPot DigPot DigPot DigPot ...  ReproductiveReproductiveReproductiveReproducti...  0.507808  0.530297  0.376541  0.339857  0.118463  0.194323  ...  0.370996  1.45114  0.456004  0.459221  0.420918  0.510682  0.528935  0.068986
+
+[1 rows x 18 columns]" width="                                            Behavior                                Behavioral category    prob_0    prob_1    prob_2    prob_3    prob_4    prob_5  ...    prob_8   prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg    stderr
+6  Pot DigPot DigPot DigPot DigPot DigPot DigPot ...  ReproductiveReproductiveReproductiveReproducti...  0.507808  0.530297  0.376541  0.339857  0.118463  0.194323  ...  0.370996  1.45114  0.456004  0.459221  0.420918  0.510682  0.528935  0.068986
+
+[1 rows x 18 columns]"]
+		Quiver [color=forestgreen height="                                            Behavior                                Behavioral category    prob_0    prob_1   prob_2    prob_3    prob_4    prob_5  ...    prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg   stderr
+7  QuiverQuiverQuiverQuiverQuiverQuiverQuiverQuiv...  ReproductiveReproductiveReproductiveReproducti...  1.575252  0.145726  0.02613  0.281951  0.218783  0.249001  ...  0.261722  0.584721  0.110215  0.097258  0.104652  3.739117  0.698829  0.23448
+
+[1 rows x 18 columns]" width="                                            Behavior                                Behavioral category    prob_0    prob_1   prob_2    prob_3    prob_4    prob_5  ...    prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg   stderr
+7  QuiverQuiverQuiverQuiverQuiverQuiverQuiverQuiv...  ReproductiveReproductiveReproductiveReproducti...  1.575252  0.145726  0.02613  0.281951  0.218783  0.249001  ...  0.261722  0.584721  0.110215  0.097258  0.104652  3.739117  0.698829  0.23448
+
+[1 rows x 18 columns]"]
+		"Dig Substrate" [color=forestgreen height="                                            Behavior                                Behavioral category  prob_0    prob_1    prob_2    prob_3    prob_4    prob_5  ...    prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg    stderr
+9  Dig SubstrateDig SubstrateDig SubstrateDig Sub...  ReproductiveReproductiveReproductiveReproducti...     0.0  3.043052  1.928416  4.022559  1.765165  4.154034  ...  4.163099  3.098295  9.212666  2.682145  4.503471       0.0  3.331553  0.536855
+
+[1 rows x 18 columns]" width="                                            Behavior                                Behavioral category  prob_0    prob_1    prob_2    prob_3    prob_4    prob_5  ...    prob_8    prob_9  prob_0.1  prob_1.1  prob_2.1  prob_3.1       avg    stderr
+9  Dig SubstrateDig SubstrateDig SubstrateDig Sub...  ReproductiveReproductiveReproductiveReproducti...     0.0  3.043052  1.928416  4.022559  1.765165  4.154034  ...  4.163099  3.098295  9.212666  2.682145  4.503471       0.0  3.331553  0.536855
+
+[1 rows x 18 columns]"]
+	}
+	Biting -> Biting [color=red fontsize=15 headxlabel=28.97 labelloc=c penwidth=2.8970000000000002]
+	Biting -> Charge [color=red fontsize=15 headxlabel=15.17 labelloc=c penwidth=1.5170000000000001]
+	Biting -> Chase [color=red fontsize=15 headxlabel=12.41 labelloc=c penwidth=1.241]
+	Biting -> "Entry/Exit Pot" [color=slategray fontsize=15 headxlabel=2.07 labelloc=c penwidth=0.207]
+	Biting -> Lead [color=slategray fontsize=15 headxlabel=18.62 labelloc=c penwidth=1.862]
+	Biting -> Quiver [color=slategray fontsize=15 headxlabel=2.76 labelloc=c penwidth=0.27599999999999997]
+	Biting -> Scrape [color=red fontsize=15 headxlabel=8.97 labelloc=c penwidth=0.8970000000000001]
+	Charge -> Biting [color=red fontsize=15 headxlabel=59.26 labelloc=c penwidth=5.926]
+	Charge -> Chase [color=red fontsize=15 headxlabel=17.28 labelloc=c penwidth=1.7280000000000002]
+	Charge -> Lead [color=slategray fontsize=15 headxlabel=4.94 labelloc=c penwidth=0.49400000000000005]
+	Charge -> Scrape [color=red fontsize=15 headxlabel=7.41 labelloc=c penwidth=0.7410000000000001]
+	Chase -> Biting [color=red fontsize=15 headxlabel=13.24 labelloc=c penwidth=1.324]
+	Chase -> Chase [color=red fontsize=15 headxlabel=26.47 labelloc=c penwidth=2.6470000000000002]
+	Chase -> Lead [color=slategray fontsize=15 headxlabel=4.41 labelloc=c penwidth=0.44100000000000006]
+	Chase -> Scrape [color=red fontsize=15 headxlabel=23.53 labelloc=c penwidth=2.353]
+	"Entry/Exit Pot" -> Charge [color=slategray fontsize=15 headxlabel=15.38 labelloc=c penwidth=1.5380000000000003]
+	"Entry/Exit Pot" -> "Entry/Exit Pot" [color=forestgreen fontsize=15 headxlabel=21.15 labelloc=c penwidth=2.1149999999999998]
+	"Entry/Exit Pot" -> Lead [color=forestgreen fontsize=15 headxlabel=1.92 labelloc=c penwidth=0.192]
+	"Entry/Exit Pot" -> "Pot Dig" [color=forestgreen fontsize=15 headxlabel=50.0 labelloc=c penwidth=5.0]
+	"Entry/Exit Pot" -> Quiver [color=forestgreen fontsize=15 headxlabel=1.92 labelloc=c penwidth=0.192]
+	"Entry/Exit Pot" -> Scrape [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Foraging -> Lead [color=forestgreen fontsize=15 headxlabel=7.89 labelloc=c penwidth=0.789]
+	Foraging -> Quiver [color=forestgreen fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Lead -> Biting [color=slategray fontsize=15 headxlabel=34.38 labelloc=c penwidth=3.4380000000000006]
+	Lead -> Charge [color=slategray fontsize=15 headxlabel=12.5 labelloc=c penwidth=1.25]
+	Lead -> Chase [color=slategray fontsize=15 headxlabel=3.12 labelloc=c penwidth=0.31200000000000006]
+	Lead -> "Entry/Exit Pot" [color=forestgreen fontsize=15 headxlabel=1.56 labelloc=c penwidth=0.15600000000000003]
+	Lead -> Foraging [color=forestgreen fontsize=15 headxlabel=4.69 labelloc=c penwidth=0.4690000000000001]
+	Lead -> Lead [color=forestgreen fontsize=15 headxlabel=18.75 labelloc=c penwidth=1.875]
+	Lead -> Quiver [color=forestgreen fontsize=15 headxlabel=4.69 labelloc=c penwidth=0.4690000000000001]
+	Lead -> Scrape [color=slategray fontsize=15 headxlabel=9.38 labelloc=c penwidth=0.9380000000000002]
+	"Pot Dig" -> "Entry/Exit Pot" [color=forestgreen fontsize=15 headxlabel=27.08 labelloc=c penwidth=2.708]
+	"Pot Dig" -> "Pot Dig" [color=forestgreen fontsize=15 headxlabel=72.92 labelloc=c penwidth=7.292000000000001]
+	Quiver -> Charge [color=slategray fontsize=15 headxlabel=22.22 labelloc=c penwidth=2.222]
+	Quiver -> "Entry/Exit Pot" [color=forestgreen fontsize=15 headxlabel=11.11 labelloc=c penwidth=1.111]
+	Quiver -> Lead [color=forestgreen fontsize=15 headxlabel=33.33 labelloc=c penwidth=3.333]
+	Quiver -> Scrape [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Scrape -> Biting [color=red fontsize=15 headxlabel=16.67 labelloc=c penwidth=1.6670000000000003]
+	Scrape -> Charge [color=red fontsize=15 headxlabel=18.52 labelloc=c penwidth=1.852]
+	Scrape -> "Entry/Exit Pot" [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Scrape -> Foraging [color=slategray fontsize=15 headxlabel=1.85 labelloc=c penwidth=0.18500000000000003]
+	Scrape -> Lead [color=slategray fontsize=15 headxlabel=9.26 labelloc=c penwidth=0.926]
+	Scrape -> Scrape [color=red fontsize=15 headxlabel=18.52 labelloc=c penwidth=1.852]
+	Biting -> Foraging [color=slategray fontsize=15 headxlabel=4.83 labelloc=c penwidth=0.48300000000000004]
+	Biting -> "Frontal Side Display" [color=red fontsize=15 headxlabel=0.69 labelloc=c penwidth=0.06899999999999999]
+	Chase -> Charge [color=red fontsize=15 headxlabel=8.82 labelloc=c penwidth=0.8820000000000001]
+	Chase -> "Dig Substrate" [color=slategray fontsize=15 headxlabel=2.94 labelloc=c penwidth=0.294]
+	Chase -> Foraging [color=slategray fontsize=15 headxlabel=2.94 labelloc=c penwidth=0.294]
+	Chase -> "Lateral Side Display" [color=red fontsize=15 headxlabel=11.76 labelloc=c penwidth=1.176]
+	Chase -> Quiver [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	"Dig Substrate" -> Chase [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	"Dig Substrate" -> "Dig Substrate" [color=forestgreen fontsize=15 headxlabel=78.57 labelloc=c penwidth=7.856999999999999]
+	"Dig Substrate" -> Foraging [color=forestgreen fontsize=15 headxlabel=8.93 labelloc=c penwidth=0.893]
+	"Dig Substrate" -> Lead [color=forestgreen fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	"Dig Substrate" -> Scrape [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	"Entry/Exit Pot" -> Biting [color=slategray fontsize=15 headxlabel=1.92 labelloc=c penwidth=0.192]
+	"Entry/Exit Pot" -> Chase [color=slategray fontsize=15 headxlabel=1.92 labelloc=c penwidth=0.192]
+	Foraging -> Charge [color=slategray fontsize=15 headxlabel=13.16 labelloc=c penwidth=1.316]
+	Foraging -> Chase [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Foraging -> "Dig Substrate" [color=forestgreen fontsize=15 headxlabel=15.79 labelloc=c penwidth=1.579]
+	Foraging -> "Entry/Exit Pot" [color=forestgreen fontsize=15 headxlabel=5.26 labelloc=c penwidth=0.526]
+	Foraging -> Foraging [color=forestgreen fontsize=15 headxlabel=39.47 labelloc=c penwidth=3.947]
+	Foraging -> Scrape [color=slategray fontsize=15 headxlabel=7.89 labelloc=c penwidth=0.789]
+	"Frontal Side Display" -> Charge [color=red fontsize=15 headxlabel=33.33 labelloc=c penwidth=3.333]
+	"Frontal Side Display" -> Chase [color=red fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	"Frontal Side Display" -> Lead [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	"Lateral Side Display" -> Biting [color=red fontsize=15 headxlabel=23.81 labelloc=c penwidth=2.381]
+	"Lateral Side Display" -> Chase [color=red fontsize=15 headxlabel=4.76 labelloc=c penwidth=0.476]
+	Lead -> "Dig Substrate" [color=forestgreen fontsize=15 headxlabel=4.69 labelloc=c penwidth=0.4690000000000001]
+	Lead -> "Lateral Side Display" [color=slategray fontsize=15 headxlabel=4.69 labelloc=c penwidth=0.4690000000000001]
+	"Pot Dig" -> Scrape [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Quiver -> Quiver [color=forestgreen fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Scrape -> Chase [color=red fontsize=15 headxlabel=24.07 labelloc=c penwidth=2.407]
+	Scrape -> "Dig Substrate" [color=slategray fontsize=15 headxlabel=5.56 labelloc=c penwidth=0.5559999999999999]
+	Scrape -> "Frontal Side Display" [color=red fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Scrape -> Quiver [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Biting -> "Dig Substrate" [color=slategray fontsize=15 headxlabel=2.76 labelloc=c penwidth=0.27599999999999997]
+	Biting -> "Lateral Side Display" [color=red fontsize=15 headxlabel=2.07 labelloc=c penwidth=0.207]
+	"Border Fight" -> Chase [color=red fontsize=15 headxlabel=25.0 labelloc=c penwidth=2.5]
+	"Border Fight" -> Scrape [color=red fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Charge -> "Border Fight" [color=red fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Charge -> Charge [color=red fontsize=15 headxlabel=6.17 labelloc=c penwidth=0.617]
+	Charge -> "Dig Substrate" [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Charge -> "Entry/Exit Pot" [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Charge -> Foraging [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Charge -> "Frontal Side Display" [color=red fontsize=15 headxlabel=1.23 labelloc=c penwidth=0.123]
+	Charge -> "Lateral Side Display" [color=red fontsize=15 headxlabel=3.7 labelloc=c penwidth=0.37000000000000005]
+	Chase -> "Border Fight" [color=red fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Chase -> "Entry/Exit Pot" [color=slategray fontsize=15 headxlabel=4.41 labelloc=c penwidth=0.44100000000000006]
+	"Dig Substrate" -> Charge [color=slategray fontsize=15 headxlabel=6.25 labelloc=c penwidth=0.625]
+	"Dig Substrate" -> "Entry/Exit Pot" [color=forestgreen fontsize=15 headxlabel=3.57 labelloc=c penwidth=0.357]
+	"Entry/Exit Pot" -> "Dig Substrate" [color=forestgreen fontsize=15 headxlabel=5.77 labelloc=c penwidth=0.577]
+	Foraging -> Biting [color=slategray fontsize=15 headxlabel=10.53 labelloc=c penwidth=1.053]
+	"Frontal Side Display" -> Biting [color=red fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	"Lateral Side Display" -> Charge [color=red fontsize=15 headxlabel=33.33 labelloc=c penwidth=3.333]
+	"Lateral Side Display" -> Foraging [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Biting -> "Border Fight" [color=red fontsize=15 headxlabel=0.69 labelloc=c penwidth=0.06899999999999999]
+	"Border Fight" -> Biting [color=red fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	"Dig Substrate" -> Biting [color=slategray fontsize=15 headxlabel=1.79 labelloc=c penwidth=0.17900000000000002]
+	"Entry/Exit Pot" -> Foraging [color=forestgreen fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Quiver -> Biting [color=slategray fontsize=15 headxlabel=22.22 labelloc=c penwidth=2.222]
+	Quiver -> Foraging [color=forestgreen fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	"Border Fight" -> Foraging [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	"Border Fight" -> Lead [color=slategray fontsize=15 headxlabel=50.0 labelloc=c penwidth=5.0]
+	Foraging -> "Border Fight" [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	"Lateral Side Display" -> Scrape [color=red fontsize=15 headxlabel=4.76 labelloc=c penwidth=0.476]
+	Lead -> "Border Fight" [color=slategray fontsize=15 headxlabel=1.56 labelloc=c penwidth=0.15600000000000003]
+	Scrape -> "Border Fight" [color=red fontsize=15 headxlabel=1.85 labelloc=c penwidth=0.18500000000000003]
+	"Border Fight" -> "Border Fight" [color=red fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	"Border Fight" -> Charge [color=red fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	"Border Fight" -> "Dig Substrate" [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Charge -> Quiver [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	"Dig Substrate" -> "Border Fight" [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	"Dig Substrate" -> "Lateral Side Display" [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	"Frontal Side Display" -> Foraging [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	"Lateral Side Display" -> "Border Fight" [color=red fontsize=15 headxlabel=4.76 labelloc=c penwidth=0.476]
+	"Lateral Side Display" -> "Dig Substrate" [color=slategray fontsize=15 headxlabel=9.52 labelloc=c penwidth=0.952]
+	"Lateral Side Display" -> Lead [color=slategray fontsize=15 headxlabel=19.05 labelloc=c penwidth=1.9050000000000002]
+	Lead -> "Frontal Side Display" [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	"Pot Dig" -> Charge [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Quiver -> Chase [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	"Pot Dig" -> "Dig Substrate" [color=forestgreen fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Quiver -> "Dig Substrate" [color=forestgreen fontsize=15 headxlabel=11.11 labelloc=c penwidth=1.111]
+	"Dig Substrate" -> Quiver [color=forestgreen fontsize=15 headxlabel=0.89 labelloc=c penwidth=0.08900000000000001]
+	"Pot Dig" -> Biting [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	"Pot Dig" -> Lead [color=forestgreen fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Lead -> "Pot Dig" [color=forestgreen fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Scrape -> "Lateral Side Display" [color=red fontsize=15 headxlabel=3.7 labelloc=c penwidth=0.37000000000000005]
+	"Border Fight" -> "Lateral Side Display" [color=red fontsize=15 headxlabel=25.0 labelloc=c penwidth=2.5]
+	Chase -> "Frontal Side Display" [color=red fontsize=15 headxlabel=1.47 labelloc=c penwidth=0.147]
+	"Frontal Side Display" -> "Entry/Exit Pot" [color=slategray fontsize=15 headxlabel=33.33 labelloc=c penwidth=3.333]
+	"Frontal Side Display" -> "Lateral Side Display" [color=red fontsize=15 headxlabel=33.33 labelloc=c penwidth=3.333]
+	Chase -> "Pot Dig" [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	Foraging -> "Lateral Side Display" [color=slategray fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+	"Frontal Side Display" -> Scrape [color=red fontsize=15 headxlabel=0.0 labelloc=c penwidth=0.0]
+}
