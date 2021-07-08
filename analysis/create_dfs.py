@@ -268,9 +268,7 @@ def create_barplots(folders):
     plt.gca().set_title("")
     plt.tight_layout()
 
-    plt.savefig('/images/behavior_time_dyad_barplot.png', dpi=300)
-    print('====================')
-    return
+    plt.savefig('./images/behavior_time_dyad_barplot.png', dpi=300)
 
 
 
