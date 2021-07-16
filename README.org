@@ -31,5 +31,6 @@
 
 **** Raster plots
 - Line 41: Add in behaviors of interest to create raster plots. For current data it is 'Chase' and 'Quiver'
+- Line 42: Add in colors associated with each behavior to be displayed
 **** Running file
 - Run program by pressing green arrow at top of screen or pressing F5

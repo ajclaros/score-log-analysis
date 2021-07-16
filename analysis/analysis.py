@@ -37,8 +37,9 @@ behavior_classifications['Reproductive'] = ["Lead","Quiver","Pot Dig", "Dig Subs
 combined_behaviors = dict()
 combined_behaviors['Entry/Exit Pot'] = ['Entry/Exit Pot', 'Entry /Exit Pot', 'Pot Entry', 'Pot Exit']
 
-#Behavior names to create rastor plots
-behavior_raster = ['Chase', 'Quiver']
+#Behavior names to create rastar plots
+behavior_raster = ['Chase', 'Quiver', 'Border Fight', 'Lead']
+raster_colors  = ['blue', 'green','red','magenta']
 
 def create_df(fish_type):
 
@@ -272,16 +273,21 @@ def create_barplots(folders):
 
 
 
-def create_raster(filename, animal_type, behavior):
+def create_raster(filename, animal_type, behaviors):
     data = pd.read_csv('./data/{}/{}'.format(animal_type, filename), index_col=0)
-    beh_data = data[data['Behavior']==behavior]
-    fig, ax = plt.subplots(figsize=(10,2))
-    ax.eventplot(beh_data['Time'])
-    fig.suptitle('Filename: {}, Behavior: {}, Type: {}'.format(filename, behavior, animal_type))
+    beh_data = data[data['Behavior'].isin(behaviors)]
+
+    fig, ax = plt.subplots(figsize=(10,4))
+    colors = raster_colors
+    for i, beh in enumerate(behavior_raster):
+        ax.eventplot(beh_data[beh_data['Behavior']==beh]['Time'], color= colors[i], label=beh)
+    fig.suptitle('Filename: {}, Type: {}'.format(filename, animal_type))
     plotname = filename.split('.')[0]
-    if not os.path.lexists('./images/{}/{}/'.format(animal_type, behavior)):
-        os.makedirs('./images/{}/{}'.format(animal_type, behavior))
-    plt.savefig('./images/{}/{}/{}_{}_{}.png'.format(animal_type,behavior,plotname,animal_type,behavior))
+    plt.legend()
+    plt.tight_layout()
+    if not os.path.lexists('./images/{}/'.format(animal_type)):
+        os.makedirs('./images/{}'.format(animal_type))
+    plt.savefig('./images/{}/{}_{}.png'.format(animal_type,plotname,animal_type))
 
 
 
@@ -313,5 +319,4 @@ for animal_type in animal_types.keys():
     print(animal_type)
     for filename in os.listdir('./data/{}'.format(animal_type)):
         if not os.path.isdir('./data/{}/{}'.format(animal_type, filename)):
-            for behavior in behavior_raster:
-                create_raster(filename, animal_type, behavior)
+            beh_data = create_raster(filename, animal_type, behavior_raster)
