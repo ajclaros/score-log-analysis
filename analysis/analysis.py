@@ -10,6 +10,7 @@ import os
 import re
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib import get_cmap
 import numpy as np
 import decimal
 from graphviz import *
@@ -278,7 +279,8 @@ def create_raster(filename, animal_type, behaviors):
     beh_data = data[data['Behavior'].isin(behaviors)]
 
     fig, ax = plt.subplots(figsize=(10,4))
-    colors = raster_colors
+    cmap = get_cmap('tab10')
+    colors = cmap.colors
     for i, beh in enumerate(behavior_raster):
         ax.eventplot(beh_data[beh_data['Behavior']==beh]['Time'], color= colors[i], label=beh)
     fig.suptitle('Filename: {}, Type: {}'.format(filename, animal_type))
