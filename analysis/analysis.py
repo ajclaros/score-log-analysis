@@ -4,16 +4,16 @@ import pandas as pd
 import sys
 from io import StringIO
 import decimal
-import sys
-from io import StringIO
 import os
 import re
 import pandas as pd
 import matplotlib.pyplot as plt
-from matplotlib import get_cmap
+from matplotlib.cm import get_cmap
+from matplotlib.patches import Rectangle
 import numpy as np
 import decimal
 from graphviz import *
+import cv2
 
 
 
@@ -143,6 +143,12 @@ def import_dataframes():
                df[tsv] = pd.read_csv(s, sep='\t')
     return df
 
+def GetKey(val, dictionary):
+    for key, value in dictionary.items():
+        if val in value:
+            return key
+    return "key for {} doesn't exist".format(val)
+
 def split_subject(df):
     filenames = list(df.keys())
     subjects = [df[filename]["Subject"].unique()[0] for filename in filenames]
@@ -161,12 +167,6 @@ def split_subject(df):
         else:
             frame.to_csv('data/{}/{}'.format(frame['Subject'][0], filename), index=False)
     return
-
-def GetKey(val, dictionary):
-    for key, value in dictionary.items():
-        if val in value:
-            return key
-    return "key for {} doesn't exist".format(val)
 
 def flatten(_2d_list):
     flat_list = []
@@ -273,16 +273,40 @@ def create_barplots(folders):
     plt.savefig('./images/behavior_time_dyad_barplot.png', dpi=300)
 
 
+def combine_rasters(df):
+    if not os.path.lexists('./images/combined/'):
+        os.makedirs('./images/combined')
+    origin_files = [name.replace('.tsv', '') for name in df.keys()]
 
-def create_raster(filename, animal_type, behaviors):
+    image_folders = [string for string in os.listdir('./images') if '.' not in string]
+    image_folders.remove('combined')
+    for name in origin_files:
+        images=[]
+        for i, fold in enumerate(image_folders):
+            temp = [image_file for image_file in os.listdir('./images/{}/'.format(fold)) if name in image_file]
+            image = cv2.imread('./images/{}/{}'.format(fold, temp[0]))
+
+            images.append(image)
+
+        vert_images = cv2.vconcat(images)
+        cv2.imwrite('./images/combined/{}.png'.format(name), vert_images)
+
+def create_raster(filename, animal_type, behaviors, duration_behaviors = None):
     data = pd.read_csv('./data/{}/{}'.format(animal_type, filename), index_col=0)
-    beh_data = data[data['Behavior'].isin(behaviors)]
-
+    data['time2'] = data['Time'].shift(-1)
     fig, ax = plt.subplots(figsize=(10,4))
     cmap = get_cmap('tab10')
     colors = cmap.colors
     for i, beh in enumerate(behavior_raster):
-        ax.eventplot(beh_data[beh_data['Behavior']==beh]['Time'], color= colors[i], label=beh)
+        if duration_behaviors is not None:
+            if beh in duration_behaviors:
+                for ix, (row_index, row) in enumerate(data[data['Behavior']==beh].iterrows()):
+                    if ix==0:
+                       ax.add_patch(Rectangle((row['Time'],0.9), width=row['time2']-row['Time'], height=0.2, label=beh, color=colors[i]))
+                    else:
+                       ax.add_patch(Rectangle((row['Time'],0.9), width=row['time2']-row['Time'], height=0.2, color=colors[i]))
+                continue
+        ax.eventplot(data[data['Behavior']==beh]['Time'], color= colors[i], label=beh)
     fig.suptitle('Filename: {}, Type: {}'.format(filename, animal_type))
     plotname = filename.split('.')[0]
     plt.legend()
@@ -321,4 +345,5 @@ for animal_type in animal_types.keys():
     print(animal_type)
     for filename in os.listdir('./data/{}'.format(animal_type)):
         if not os.path.isdir('./data/{}/{}'.format(animal_type, filename)):
-            beh_data = create_raster(filename, animal_type, behavior_raster)
+            beh_data = create_raster(filename, animal_type, behavior_raster, duration_behaviors=['Chase'])
+combine_rasters(df)
