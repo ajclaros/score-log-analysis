@@ -20,27 +20,26 @@ import cv2
 # Color mappings
 colors = {
     'Aggressive':'red',
-    'Subordinate':'blue',
+    'Aversive':'blue',
     'Reproductive':'forestgreen'}
 
 #change bar colors
-bar_colors = {'Subordinate': 'blue', 'Dominant':'red'}
+bar_colors = {'blue female 2': 'blue', 'yellow female 2':'yellow', 'blue female 1':'green', 'yellow female 1':'red'}
 
-#Replace 'Aggressive', 'Subordinate', 'Reproductive' with behavior classes
+#Replace 'Aggressive', 'Aversive', 'Reproductive' with behavior classes
 #replace lists on left side with list of associated behaviors for each class
 behavior_classifications = dict()
-behavior_classifications['Aggressive'] = [ "Chase", "Border Fight", "Frontal Side Display", "Lateral Side Display", "Attack", "Biting", "Scrape", 'Charge']
-behavior_classifications['Subordinate'] = ["Fleeing Male", "Fleeing Female"]
-behavior_classifications['Reproductive'] = ["Lead","Quiver","Pot Dig", "Dig Substrate", "Foraging", "Entry/Exit Pot"]
+behavior_classifications['Aggressive'] = ['b peck', 'y peck']
+behavior_classifications['Aversive'] = ["y flee", "b flee"]
+behavior_classifications['Reproductive'] = ['b circle', 'y circle', 'y follow', 'b follow', 'enter', 'exit']
 
 # Replace duplicate or multiple behaviors to combine into a single term
 #
 combined_behaviors = dict()
-combined_behaviors['Entry/Exit Pot'] = ['Entry/Exit Pot', 'Entry /Exit Pot', 'Pot Entry', 'Pot Exit']
+#combined_behaviors['Enter/Exit'] = ['enter', 'exit', 'Pot Entry', 'Pot Exit']
 
 #Behavior names to create rastar plots
-behavior_raster = ['Chase', 'Quiver', 'Border Fight', 'Lead']
-raster_colors  = ['blue', 'green','red','magenta']
+behavior_raster = ['b peck', 'y peck','y flee','b flee','b circle','y circle','y follow', 'b follow', 'enter']
 
 def create_df(fish_type):
 
@@ -48,65 +47,68 @@ def create_df(fish_type):
     if not os.path.exists('data/{}/converted_data'.format(fish_type)):
         os.makedirs("data/{}/converted_data".format(fish_type))
     csv = [x for x in files if 'tsv' in x or 'csv' in x]
-    df = [pd.read_csv('data/{}/{}'.format(fish_type, data), index_col=[0]) for data in csv]
+
+    df = {data:pd.read_csv('data/{}/{}'.format(fish_type, data)) for data in csv}
+
+    #df = [pd.read_csv('data/{}/{}'.format(fish_type, data), index_col=[0]) for data in csv]
     g = Digraph(name = fish_type, engine='dot')
     g.attr(label=fish_type, labelloc='t', )
-    behavior_time = []
-    transition_matrix = []
-    transition_probabilities = []
+    behavior_time = {}
+    transition_matrix = {}
+    transition_probabilities ={}
     behaviors = []
     categories = []
     single_probabilities = []
-    for i, frame in enumerate(df):
+    for i, (name, frame) in enumerate(df.items()):
         global behavior_classifications
-
         for key in combined_behaviors.keys():
-            df[i]['Behavior'] = np.where(df[i]['Behavior'].isin(combined_behaviors[key]), key, df[i]['Behavior'])
+            df[name]['Behavior'] = np.where(df[name]['Behavior'].isin(combined_behaviors[key]), key, df[name]['Behavior'])
 
         for key in behavior_classifications.keys():
-            df[i]['Behavioral category'] = np.where(df[i]['Behavior'].isin(behavior_classifications[key]), key, df[i]['Behavioral category'])
+            df[name]['Behavioral category'] = np.where(df[name]['Behavior'].isin(behavior_classifications[key]), key, df[name]['Behavioral category'])
 
 
-        df[i]['time2'] = df[i]['Time'].shift(-1)
+        df[name]['time2'] = df[name]['Time'].shift(-1)
         #create new column of transition behavior
-        df[i]['Behavior next'] = df[i]['Behavior'].shift(-1)
-        df[i]['duration'] = df[i]['time2']-df[i]['Time']
+        df[name]['Behavior next'] = df[name]['Behavior'].shift(-1)
+        df[name]['duration'] = df[name]['time2']-df[name]['Time']
         #removing first and last rows because we dont know their length
-        df[i]= df[i][1:-1]
+        df[name]= df[name][1:-1]
         #Drop irrelevant columns
-        df[i]= df[i].filter(['Behavior', 'Behavioral category', 'Behavior next', 'duration', 'Subject'])
+        df[name]= df[name].filter(['Behavior', 'Behavioral category', 'Behavior next', 'duration', 'Subject'])
         #percentage of each behavior time (each size of a node for a behavior in a graph will correspond to its percentage)
         #count up transition behaviors, create probabilities
-        transition_matrix.append(df[i].groupby(['Behavior', 'Behavior next', 'Behavioral category']).count())
-        behavior_time.append(df[i].groupby(['Behavior','Behavioral category']).agg({'duration':sum}))
-        transition_matrix[i].rename(columns={'duration':'Counts'}, inplace=True)
-        transition_matrix[i].drop(['Subject'], axis=1, inplace=True)
-        behaviors.append(df[i]['Behavior'].unique())
-        categories.append(df[i]['Behavioral category'].unique())
-        associations =df[i].groupby('Behavioral category')['Behavior'].unique().apply(list)
+        transition_matrix[name] = df[name].groupby(['Behavior', 'Behavior next', 'Behavioral category']).count()
+        behavior_time[name] = df[name].groupby(['Behavior','Behavioral category']).agg({'duration':sum})
+        transition_matrix[name].rename(columns={'duration':name}, inplace=True)
+        transition_matrix[name].drop(['Subject'], axis=1, inplace=True)
+        behaviors.append(df[name]['Behavior'].unique())
+        categories.append(df[name]['Behavioral category'].unique())
+        associations =df[name].groupby('Behavioral category')['Behavior'].unique().apply(list)
 
     #merge all transition matrices into transition_df
-    transition_df = transition_matrix.pop(0)
+    score_names = list(transition_matrix.keys())
+    print(score_names)
+    transition_df = transition_matrix.pop(score_names[0])
     transition_df.reset_index(level=[0,1,2], inplace=True)
-    transition_df.rename(columns={'Counts':'Counts_0'}, inplace=True)
-    behavior_time_df = behavior_time.pop(0)
-    behavior_time_df.rename(columns={'duration':'duration_0'}, inplace=True)
-    for i, frame in enumerate(transition_matrix):
-        transition_matrix[i].reset_index(level=[0,1,2], inplace=True)
-        transition_df = pd.merge(transition_df, transition_matrix[i], on=['Behavior', 'Behavior next', 'Behavioral category'], how='outer', suffixes=[None, '_{}'.format(i+1)])
-        behavior_time_df = pd.merge(behavior_time_df, behavior_time[i], on=['Behavior','Behavioral category'], how='outer', suffixes=[None,'_{}'.format(i+1)])
-    transition_df.rename(columns={'Counts':'Counts_1'}, inplace=True)
-    behavior_time_df.rename(columns={'duration':'duration_1'}, inplace=True)
+    transition_df.rename(columns={'Counts':score_names[0]}, inplace=True)
+    behavior_time_df = behavior_time.pop(score_names[0])
+    behavior_time_df.rename(columns={'duration':score_names[0]}, inplace=True)
+
+    for i, name in enumerate(score_names[1:]):
+        transition_matrix[name].reset_index(level=[0,1,2], inplace=True)
+        transition_df = pd.merge(transition_df, transition_matrix[name], on=['Behavior', 'Behavior next', 'Behavioral category'], how='outer', suffixes=[None, name])
+        behavior_time_df = pd.merge(behavior_time_df, behavior_time[name], on=['Behavior','Behavioral category'], how='outer', suffixes=[None,name])
     transition_df.fillna(0, inplace=True)
     behavior_time_df.fillna(0, inplace=True)
     all_behaviors = np.unique(np.concatenate(behaviors))
     categories = np.unique(np.concatenate(categories))
     transition_probabilities = transition_df.copy()
     behavior_time_probabilities = behavior_time_df.copy()
-    transition_probabilities.columns= ['prob_{}'.format(col[-1]) if 'Counts' in col else col for col in transition_df.columns]
-    for column in [prob_column for prob_column in transition_probabilities.columns if 'prob' in prob_column]:
+    transition_probabilities.columns= [score_names[-1] if 'Counts' in col else col for col in transition_df.columns]
+    for column in [prob_column for prob_column in transition_probabilities.columns if '.tsv' in prob_column]:
         transition_probabilities[column]= transition_probabilities[column]/transition_probabilities[column].sum()
-    behavior_time_probabilities.columns= ['prob_{}'.format(col[-1]) if 'duration' in col else col for col in behavior_time_df.columns]
+    behavior_time_probabilities.columns= [score_names[-1] if 'duration' in col else col for col in behavior_time_df.columns]
     for column in [prob_column for prob_column in behavior_time_probabilities.columns if 'prob' in prob_column]:
         behavior_time_probabilities[column]= behavior_time_probabilities[column]/behavior_time_probabilities[column].sum()
 
@@ -227,8 +229,9 @@ def create_graph(data, fish_type):
         graph.render('data/{}/converted_data/markov/{}_{}'.format(fish_type,fish_type, column), format='png', quiet=True)
     return
 
-def create_barplots(folders):
-    behavior_time = [pd.read_csv('data/{}/converted_data/behavior_time_probabilities.csv'.format(group), index_col=[0]) for group in folders]
+def create_barplots(folders, custom_colors=None):
+    behavior_time = [pd.read_csv('data/{}/converted_data/behavior_time_probabilities.csv'.format(group)) for group in folders]
+    #behavior_time = [pd.read_csv('data/{}/converted_data/behavior_time_probabilities.csv'.format(group), index_col=[0]) for group in folders]
     for i, behavior in enumerate(behavior_time):
          for beh in behavior_time[i]['Behavior']:
              if beh not in behavior_time[i-1]['Behavior'].values:
@@ -248,12 +251,25 @@ def create_barplots(folders):
          behavior_time[i]= behavior_time[i][['avg','color','stderr', 'group']]
          behavior_time[i].sort_index(inplace=True)
          behavior_time[i].reset_index(inplace=True)
-    joined= pd.merge(behavior_time[-1], behavior_time[0], how='outer', on=['Behavior','avg','stderr', 'group'])
+         for col in behavior_time[i].columns:
+             if col == 'group':
+                 behavior_time[i][col] = behavior_time[i][col].fillna(behavior_time[i]['group'][0])
+             else:
+                 behavior_time[i][col] = behavior_time[i][col].fillna(0)
+    joined= pd.merge(behavior_time[-1], behavior_time[0], how='outer', on=['Behavior','avg','stderr', 'group','color'])
+    joined.fillna(value = {'avg':0.0, 'stderr':0.0, 'color':joined['color'].unique()[-2],'group':joined['group'].unique()[-2]}, inplace= True)
     if len(behavior_time)>2:
-        for i in enumerate(behavior_time):
-            joined = pd.merge(joined, behavior_time[i+1], how='outer', on=['Behavior','avg','stderr','group'])
+        for i, name in enumerate(behavior_time[:-1]):
+            joined = pd.merge(joined, behavior_time[i+1], how='outer', on=['Behavior','avg','stderr','group','color'])
+            joined.fillna(value = {'avg':0.0, 'stderr':0.0, 'color':joined['color'].unique()[-2],'group':joined['group'].unique()[-2]}, inplace= True)
+
+
     fig, ax =plt.subplots()
-    joined.pivot(index='Behavior', columns='group', values='avg').plot(kind='bar', width=.9, color=[bar_colors[group] for group in folders], ax=ax, yerr=joined.pivot(index='Behavior',columns='group',values='stderr').fillna(0).T.values, error_kw=dict(ecolor='slategray' ,capthick=2, capsize=5))
+    pivoted = joined.pivot(index='Behavior', columns='group', values='avg')
+    if custom_colors is not None:
+        pivoted.plot(kind='bar', width=.9, color=custom_colors, ax=ax, yerr=joined.pivot(index='Behavior',columns='group',values='stderr').fillna(0).T.values, error_kw=dict(ecolor='slategray' ,capthick=2, capsize=5))
+    else: pivoted.plot(kind='bar', width=.9, color=[bar_colors[group] for group in pivoted.columns], ax=ax, yerr=joined.pivot(index='Behavior',columns='group',values='stderr').fillna(0).T.values, error_kw=dict(ecolor='slategray' ,capthick=2, capsize=5))
+
 
     ax.tick_params(axis='x', colors='black', rotation=90)
     ax.tick_params(axis='y', colors='black')
@@ -271,6 +287,7 @@ def create_barplots(folders):
     plt.tight_layout()
 
     plt.savefig('./images/behavior_time_dyad_barplot.png', dpi=300)
+    plt.clf()
 
 
 def combine_rasters(df):
@@ -284,6 +301,11 @@ def combine_rasters(df):
         images=[]
         for i, fold in enumerate(image_folders):
             temp = [image_file for image_file in os.listdir('./images/{}/'.format(fold)) if name in image_file]
+            print('--------')
+            print(i)
+        
+            print(fold)
+            print(temp)
             image = cv2.imread('./images/{}/{}'.format(fold, temp[0]))
 
             images.append(image)
@@ -292,28 +314,36 @@ def combine_rasters(df):
         cv2.imwrite('./images/combined/{}.png'.format(name), vert_images)
 
 def create_raster(filename, animal_type, behaviors, duration_behaviors = None):
-    data = pd.read_csv('./data/{}/{}'.format(animal_type, filename), index_col=0)
+    data = pd.read_csv('./data/{}/{}'.format(animal_type, filename))
+    blue =  (0.12156862745098039, 0.4666666666666667, 0.7058823529411765)
+#    data = pd.read_csv('./data/{}/{}'.format(animal_type, filename), index_col=0)
     data['time2'] = data['Time'].shift(-1)
-    fig, ax = plt.subplots(figsize=(10,4))
+    fig, ax = plt.subplots(figsize=(40,5))
     cmap = get_cmap('tab10')
     colors = cmap.colors
     for i, beh in enumerate(behavior_raster):
         if duration_behaviors is not None:
             if beh in duration_behaviors:
+
+                duration = data[data['Behavior']==beh]['time2']-data[data['Behavior']==beh]['Time']
+                print(duration)
+#                ax.eventplot(data[data['Behavior']==beh]['Time'], color='k', label=beh)
                 for ix, (row_index, row) in enumerate(data[data['Behavior']==beh].iterrows()):
                     if ix==0:
-                       ax.add_patch(Rectangle((row['Time'],0.9), width=row['time2']-row['Time'], height=0.2, label=beh, color=colors[i]))
+                       ax.add_patch(Rectangle((row['Time'],0.9), width=row['time2']-row['Time'], height=0.2, label=beh, color=blue))
                     else:
-                       ax.add_patch(Rectangle((row['Time'],0.9), width=row['time2']-row['Time'], height=0.2, color=colors[i]))
+                       ax.add_patch(Rectangle((row['Time'],0.9), width=row['time2']-row['Time'], height=0.2, color=blue))
                 continue
         ax.eventplot(data[data['Behavior']==beh]['Time'], color= colors[i], label=beh)
     fig.suptitle('Filename: {}, Type: {}'.format(filename, animal_type))
     plotname = filename.split('.')[0]
     plt.legend()
     plt.tight_layout()
+    plt.grid(True)
     if not os.path.lexists('./images/{}/'.format(animal_type)):
         os.makedirs('./images/{}'.format(animal_type))
     plt.savefig('./images/{}/{}_{}.png'.format(animal_type,plotname,animal_type))
+    plt.clf()
 
 
 
@@ -337,13 +367,13 @@ for fish_type in folders:
             continue
         data[csv[:-4]] = pd.read_csv('data/{}/converted_data/{}'.format(fish_type,csv),index_col=0)
     create_graph(data, fish_type)
-create_barplots(folders)
+create_barplots(folders[:2] , custom_colors = ['blue', 'yellow'])
 
 
 animal_types = {dirname:os.listdir('./data/{}'.format(dirname)) for dirname in os.listdir('./data/') if os.path.isdir(os.path.join('./data', dirname))}
-for animal_type in animal_types.keys():
-    print(animal_type)
-    for filename in os.listdir('./data/{}'.format(animal_type)):
-        if not os.path.isdir('./data/{}/{}'.format(animal_type, filename)):
-            beh_data = create_raster(filename, animal_type, behavior_raster, duration_behaviors=['Chase'])
-combine_rasters(df)
+#for animal_type in animal_types.keys():
+#    print(animal_type)
+#    for filename in os.listdir('./data/{}'.format(animal_type)):
+#        if not os.path.isdir('./data/{}/{}'.format(animal_type, filename)):
+#            beh_data = create_raster(filename, animal_type, behavior_raster, duration_behaviors=['enter'])
+#combine_rasters(df)
