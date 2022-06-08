@@ -16,7 +16,6 @@ from graphviz import *
 import cv2
 
 
-
 # Color mappings
 colors = {
     'Aggressive':'red',
@@ -41,6 +40,10 @@ combined_behaviors = dict()
 #Behavior names to create rastar plots
 behavior_raster = ['b peck', 'y peck','y flee','b flee','b circle','y circle','y follow', 'b follow', 'enter']
 
+
+#Raster plot sizes
+raster_width = 20
+raster_height = 5
 def create_df(fish_type):
 
     files = os.listdir('data/{}'.format(fish_type))
@@ -318,7 +321,7 @@ def create_raster(filename, animal_type, behaviors, duration_behaviors = None):
     blue =  (0.12156862745098039, 0.4666666666666667, 0.7058823529411765)
 #    data = pd.read_csv('./data/{}/{}'.format(animal_type, filename), index_col=0)
     data['time2'] = data['Time'].shift(-1)
-    fig, ax = plt.subplots(figsize=(40,5))
+    fig, ax = plt.subplots(figsize=(raster_width,raster_height))
     cmap = get_cmap('tab10')
     colors = cmap.colors
     for i, beh in enumerate(behavior_raster):
@@ -371,9 +374,10 @@ create_barplots(folders[:2] , custom_colors = ['blue', 'yellow'])
 
 
 animal_types = {dirname:os.listdir('./data/{}'.format(dirname)) for dirname in os.listdir('./data/') if os.path.isdir(os.path.join('./data', dirname))}
-#for animal_type in animal_types.keys():
-#    print(animal_type)
-#    for filename in os.listdir('./data/{}'.format(animal_type)):
-#        if not os.path.isdir('./data/{}/{}'.format(animal_type, filename)):
-#            beh_data = create_raster(filename, animal_type, behavior_raster, duration_behaviors=['enter'])
+for animal_type in animal_types.keys():
+    print(animal_type)
+    for filename in os.listdir('./data/{}'.format(animal_type)):
+        if not os.path.isdir('./data/{}/{}'.format(animal_type, filename)):
+            beh_data = create_raster(filename, animal_type, behavior_raster, duration_behaviors=['enter'])
 #combine_rasters(df)
+print('done')
