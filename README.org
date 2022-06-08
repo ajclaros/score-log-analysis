@@ -7,6 +7,7 @@
 - [[https://www.anaconda.com/products/individual][Install anaconda]]
 - Open anaconda prompt (search for the installed program)
 - within the command line type "conda create -n analysis python=3.8 numpy matplotlib pandas graphviz python-graphviz spyder"
+- a second command "pip install opencv-python"
 
 * Running and editing scripts
 - Download this repository and unzip the folder
