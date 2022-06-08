@@ -269,6 +269,9 @@ def create_barplots(folders, custom_colors=None):
 
     fig, ax =plt.subplots()
     pivoted = joined.pivot(index='Behavior', columns='group', values='avg')
+    #convert to percent
+    pivoted = pivoted.div(pivoted.sum(axis=0), axis=1)*100
+
     if custom_colors is not None:
         pivoted.plot(kind='bar', width=.9, color=custom_colors, ax=ax, yerr=joined.pivot(index='Behavior',columns='group',values='stderr').fillna(0).T.values, error_kw=dict(ecolor='slategray' ,capthick=2, capsize=5))
     else: pivoted.plot(kind='bar', width=.9, color=[bar_colors[group] for group in pivoted.columns], ax=ax, yerr=joined.pivot(index='Behavior',columns='group',values='stderr').fillna(0).T.values, error_kw=dict(ecolor='slategray' ,capthick=2, capsize=5))
