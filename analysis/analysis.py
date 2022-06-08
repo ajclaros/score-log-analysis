@@ -288,8 +288,8 @@ def create_barplots(folders, custom_colors=None):
 
     plt.gca().set_title("")
     plt.tight_layout()
-
-    os.mkdir("./images/")
+    if not os.path.exists('./images/'):
+        os.mkdir("./images/")
     plt.savefig('./images/behavior_time_dyad_barplot.png', dpi=300)
     plt.clf()
     
