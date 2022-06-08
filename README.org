@@ -18,7 +18,7 @@
 - Within Spyder, open the file within the analysis folder: "analysis.py"
 *** Editing file:
 - lines 20 through 24: Replace behavior classes with your own behavior classes (if different from file), and their colors when representing in graphs
-- replace line 7 with the colors for each bar graph
+- replace line 27 with the colors for each bar graph
 **** Editing duplicated behaviors:
 - If you don't have duplicate behaviors, you can skip this
 - use line 28 as a template to combine differently spelled behaviors
