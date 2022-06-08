@@ -23,6 +23,10 @@
 - If you don't have duplicate behaviors, you can skip this
 - use line 38 as a template to combine differently spelled behaviors
 
+**** Raster dimensions
+- Lines 46 and 47 change the raster plot dimensions, change if you'd like to change the original dimensions
+- If you'd rather not have raster plots, you can comment out lines 378 to 382 with a "#" at the beginnning
+
 **** Editing for behavior classes:
 - For each behavior classification in your dataset add a color associated with each behavior class such as "Aggressive":"red" to lines 20 through 22, add or remove line depending on your dataset
 - Modify Line 25 for bar colors. "Subordinate": "Blue" means that the animal type "Subordinate" will be displayed as a blue color in the bar charts. 
