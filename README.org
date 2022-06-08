@@ -21,16 +21,15 @@
 - replace line 27 with the colors for each bar graph
 **** Editing duplicated behaviors:
 - If you don't have duplicate behaviors, you can skip this
-- use line 28 as a template to combine differently spelled behaviors
+- use line 38 as a template to combine differently spelled behaviors
 
 **** Editing for behavior classes:
 - For each behavior classification in your dataset add a color associated with each behavior class such as "Aggressive":"red" to lines 20 through 22, add or remove line depending on your dataset
 - Modify Line 25 for bar colors. "Subordinate": "Blue" means that the animal type "Subordinate" will be displayed as a blue color in the bar charts. 
-- modify lines 30 through 32 for behavior classes and their associated behaviors
+- modify lines 30 through 34 for behavior classes and their associated behaviors
 - add more behavior classes in a similar format
 
 **** Raster plots
-- Line 41: Add in behaviors of interest to create raster plots. For current data it is 'Chase' and 'Quiver'
-- Line 42: Add in colors associated with each behavior to be displayed
+- Line 42: Add in behaviors of interest to create raster plots. For current data it is ['b peck', 'y peck','y flee','b flee','b circle','y circle','y follow', 'b follow', 'enter']
 **** Running file
 - Run program by pressing green arrow at top of screen or pressing F5
